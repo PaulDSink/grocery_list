@@ -1,18 +1,18 @@
 const grocery_items = [
     {
-        name:'apple',
+        name:'milk',
         section: 'Dairy',
         checked: false
     },
     {
         name:'pear',
-        color: 'green',
-        readyToEat: false
+        section: 'Produce',
+        checked: false
     },
     {
-        name:'banana',
-        color: 'yellow',
-        readyToEat: true
+        name:'bread',
+        color: 'Bread',
+        checked: true
     }
 ];
 
