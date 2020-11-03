@@ -38,51 +38,51 @@ app.get('/login/addAttempt', (req, res) => {
 app.post('/signup', (req, res) => {
     users.push(req.body);
     console.log(users);
-    res.redirect('/')
+    res.redirect(`/users/profile/${users.length - 1}`);
 });
 
 app.post('/login', (req, res) => {
     users.forEach((user, index) => {
         if(req.body.username == user.username && req.body.password == user.password) {
-            res.redirect(`/profile/${index}`);
+            res.redirect(`users/profile/${index}`);
         } else if (index == users.length - 1) {
             res.redirect('/login/addAttempt');
         }
     });
 });
 
-app.post('/profile/:index', (req, res) => {
-    req.body.checked = false;
-    groceryItems.push(req.body);
-    console.log(groceryItems);
-    res.redirect(`/profile/${req.params.index}`);
-});
+// app.post('/profile/:index', (req, res) => {
+//     req.body.checked = false;
+//     groceryItems.push(req.body);
+//     console.log(groceryItems);
+//     res.redirect(`/profile/${req.params.index}`);
+// });
 
-app.get('/profile/:index', (req, res) => {
-    res.render('profile.ejs', {
-        user: users[req.params.index],
-        index: req.params.index,
-        groceryItems: groceryItems,
-        storeSections: storeSections,
-    });
-});
+// app.get('/profile/:index', (req, res) => {
+//     res.render('profile.ejs', {
+//         user: users[req.params.index],
+//         index: req.params.index,
+//         groceryItems: groceryItems,
+//         storeSections: storeSections,
+//     });
+// });
 
-app.get('/profile/:index/edit', (req, res) => {
-    res.render('edit.ejs', {
-        user: users[req.params.index],
-        index: req.params.index,
-    });
-});
+// app.get('/profile/:index/edit', (req, res) => {
+//     res.render('edit.ejs', {
+//         user: users[req.params.index],
+//         index: req.params.index,
+//     });
+// });
 
-app.put('/profile/:index/edit', (req, res) => {
-    users[req.params.index] = req.body;
-    res.redirect(`/profile/${req.params.index}/edit`);
-});
+// app.put('/profile/:index/edit', (req, res) => {
+//     users[req.params.index] = req.body;
+//     res.redirect(`/profile/${req.params.index}/edit`);
+// });
 
-app.delete('/items/:index/:itemId', (req, res) => {
-    groceryItems.splice(req.params.itemId, 1);
-    res.redirect(`/profile/${req.params.index}`)
-});
+// app.delete('/items/:index/:itemId', (req, res) => {
+//     groceryItems.splice(req.params.itemId, 1);
+//     res.redirect(`/profile/${req.params.index}`)
+// });
 
 app.listen(3000, () => {
     console.log('get after it');
