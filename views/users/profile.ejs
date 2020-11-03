@@ -22,11 +22,21 @@
                 <p><%=groceryItems[i].name%></p>
                 <p><%=groceryItems[i].section%></p>
                 <form action="/items/<%=index%>/<%=i%>?_method=DELETE" method="POST">
-                    <input type="submit">
+                    <input type="submit" value="Delete">
                 </form>
             </li>
             <%}%>
         </ul>
+        <h3>Add Grocery Item:</h3>
+        <form action="/profile/<%=index%>" method="POST">
+            <input type="text" name="name">
+            <select name="section">
+                <%for(let i = 0; i < storeSections.length; i++) {%>
+                    <option value="<%=storeSections[i].name%>"><%=storeSections[i].name%></option>
+                <%}%>
+            </select>
+            <input type="submit" value="Add Item">
+        </form>
     </section>
     <footer>
 

@@ -11,7 +11,7 @@ const grocery_items = [
     },
     {
         name:'bread',
-        color: 'Bread',
+        section: 'Bread',
         checked: true
     }
 ];

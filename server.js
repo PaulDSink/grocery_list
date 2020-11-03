@@ -7,6 +7,8 @@ app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: true}));
 
+app.use("/users", require("./controllers/usersController.js"));
+
 const groceryItems = require('./models/grocery_items');
 const storeSections = require('./models/store_sections');
 const users = require('./models/users');
@@ -43,10 +45,17 @@ app.post('/login', (req, res) => {
     users.forEach((user, index) => {
         if(req.body.username == user.username && req.body.password == user.password) {
             res.redirect(`/profile/${index}`);
-        } else if (index >= users.length) {
+        } else if (index == users.length - 1) {
             res.redirect('/login/addAttempt');
         }
     });
+});
+
+app.post('/profile/:index', (req, res) => {
+    req.body.checked = false;
+    groceryItems.push(req.body);
+    console.log(groceryItems);
+    res.redirect(`/profile/${req.params.index}`);
 });
 
 app.get('/profile/:index', (req, res) => {
@@ -54,6 +63,7 @@ app.get('/profile/:index', (req, res) => {
         user: users[req.params.index],
         index: req.params.index,
         groceryItems: groceryItems,
+        storeSections: storeSections,
     });
 });
 
@@ -62,6 +72,11 @@ app.get('/profile/:index/edit', (req, res) => {
         user: users[req.params.index],
         index: req.params.index,
     });
+});
+
+app.put('/profile/:index/edit', (req, res) => {
+    users[req.params.index] = req.body;
+    res.redirect(`/profile/${req.params.index}/edit`);
 });
 
 app.delete('/items/:index/:itemId', (req, res) => {
