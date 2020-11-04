@@ -16,12 +16,12 @@
     <section>
         <h3>Grocery List:</h3>
         <ul>
-            <%for(let i = 0; i < grocery_item.length; i++) {%>
+            <%for(let i = 0; i < user.Grocery_Items.length; i++) {%>
             <li>
                 <input type="checkbox" name="checkbox">
-                <p><%=grocery_item[i].name%></p>
-                <p><%=grocery_item[i].section%></p>
-                <form action="/users/items/<%=user.id%>/<%=grocery_item[i].id%>?_method=DELETE" method="POST">
+                <p><%=user.Grocery_Items[i].name%></p>
+                <p><%=user.Grocery_Items[i].Store_Section.name%></p>
+                <form action="/users/items/<%=user.id%>/<%=user.Grocery_Items[i].id%>?_method=DELETE" method="POST">
                     <input type="submit" value="Delete">
                 </form>
             </li>
@@ -30,9 +30,9 @@
         <h3>Add Grocery Item:</h3>
         <form action="/users/items/<%=user.id%>" method="POST">
             <input type="text" name="name">
-            <select name="section">
-                <%for(let i = 0; i < store_section.length; i++) {%>
-                    <option value="<%=store_section[i].name%>"><%=store_section[i].name%></option>
+            <select name="sectionId">
+                <%for(let i = 0; i < Store_Section.length; i++) {%>
+                    <option value="<%=Store_Section[i].id%>"><%=Store_Section[i].name%></option>
                 <%}%>
             </select>
             <input type="submit" value="Add Item">

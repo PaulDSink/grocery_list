@@ -7,24 +7,27 @@ module.exports = {
       [
         {
             name:'milk',
-            section: 'Dairy',
             checked: false,
             createdAt: new Date(),
             updatedAt: new Date(),
+            userId: 1,
+            sectionId: 4,
         },
         {
             name:'pear',
-            section: 'Produce',
             checked: false,
             createdAt: new Date(),
             updatedAt: new Date(),
+            userId: 1,
+            sectionId: 1,
         },
         {
             name:'bread',
-            section: 'Bread',
             checked: true,
             createdAt: new Date(),
             updatedAt: new Date(),
+            userId: 1,
+            sectionId: 6,
         }
     ],
       {}

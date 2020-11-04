@@ -42,49 +42,54 @@ router.post('/login', (req, res) => {
     });
 });
 
+
 // router.get('/profile/:id', (req, res) => {
-//     res.render('users/profile.ejs', {
-//         user: users[req.params.index],
-//         index: req.params.index,
-//         groceryItems: groceryItems,
-//         storeSections: storeSections,
+//     User.findByPk(req.params.id).then((user) => {
+//         Grocery_Item.findAll().then((grocery_item) => {
+//             Store_Section.findAll().then((store_section) => {
+//                 res.render('users/profile.ejs', {
+//                     user: user,
+//                     grocery_item: grocery_item,
+//                     store_section: store_section,
+//                 });
+//             });
+//         });
 //     });
 // });
 
 router.get('/profile/:id', (req, res) => {
-    User.findByPk(req.params.id).then((user) => {
-        Grocery_Item.findAll().then((grocery_item) => {
-            Store_Section.findAll().then((store_section) => {
-                res.render('users/profile.ejs', {
-                    user: user,
-                    grocery_item: grocery_item,
-                    store_section: store_section,
-                });
+    User.findByPk(req.params.id, {
+        include: [
+            {
+                model: Grocery_Item,
+                attributes: ['id', 'name'],
+                include: [
+                    {
+                        model: Store_Section,
+                        attributes: ['id', 'name'],
+                    }
+                ]
+            }
+        ]
+    }).then((userProfile) => {
+        Store_Section.findAll().then((Store_Section) => {
+            res.render('users/profile.ejs', {
+                user: userProfile,
+                Store_Section: Store_Section,
             });
         });
     });
 });
 
-// router.post('/profile/:id', (req, res) => {
-//     req.body.checked = false;
-//     groceryItems.push(req.body);
-//     console.log(groceryItems);
-//     res.redirect(`/users/profile/${req.params.index}`);
-// });
 
 router.post('/items/:id', (req, res) => {
     req.body.checked = false;
+    req.body.userId = req.params.id;
     Grocery_Item.create(req.body).then((newItem) => {
         res.redirect(`/users/profile/${req.params.id}`);
     });
 });
 
-// router.get('/profile/:index/edit', (req, res) => {
-//     res.render('users/edit.ejs', {
-//         user: users[req.params.index],
-//         index: req.params.index,
-//     });
-// });
 
 router.get('/profile/:id/edit', (req, res) => {
     User.findByPk(req.params.id).then((user) => {
@@ -94,10 +99,6 @@ router.get('/profile/:id/edit', (req, res) => {
     });
 });
 
-// router.put('/profile/:index/edit', (req, res) => {
-//     users[req.params.index] = req.body;
-//     res.redirect(`/users/profile/${req.params.index}/edit`);
-// });
 
 router.put('/profile/:id/edit', (req, res) => {
     User.update(req.body, {
@@ -110,10 +111,6 @@ router.put('/profile/:id/edit', (req, res) => {
     });
 });
 
-// router.delete('/items/:index/:itemId', (req, res) => {
-//     groceryItems.splice(req.params.itemId, 1);
-//     res.redirect(`/users/profile/${req.params.index}`)
-// });
 
 router.delete('/items/:id/:itemId', (req, res) => {
     Grocery_Item.destroy({
