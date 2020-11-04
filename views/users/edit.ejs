@@ -11,10 +11,10 @@
     </header>
     <nav>
         <h4><a href="/">Home</a></h4>
-        <h4><a href="/users/profile/<%=index%>">Profile</a></h4>
+        <h4><a href="/users/profile/<%=user.id%>">Profile</a></h4>
     </nav>
     <section>
-        <form action="/users/profile/<%=index%>/edit?_method=PUT" method="POST">
+        <form action="/users/profile/<%=user.id%>/edit?_method=PUT" method="POST">
             Name: <input type="text" name="name" value="<%=user.name%>">
             <br/>
             <br/>
