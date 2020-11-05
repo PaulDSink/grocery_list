@@ -7,13 +7,15 @@
     <title>Login Page</title>
 </head>
 <body>
+    <div class="headernav">
     <header>
         <h1>Login!</h1>
     </header>
     <nav>
         <h3><a href="/">Home</a></h3>
     </nav>
-    <section>
+    </div>
+    <div class="content">
         <%if(addAttempt) {%>
             <p>Incorrect username or password. Try again.</p>
         <%}%>
@@ -26,7 +28,7 @@
         <br/>
         <input type="submit" name="Login User">
         </form>
-    </section>
+    </div>
     <footer>
 
     </footer>
