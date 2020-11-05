@@ -100,6 +100,16 @@ router.put('/profile/:id/edit', (req, res) => {
     });
 });
 
+router.delete('/profile/:id/edit', (req, res) => {
+    User.destroy({
+        where: {
+            id: req.params.id,
+        }
+    }).then(() => {
+        res.redirect('/');
+    });
+});
+
 
 router.delete('/items/:id/:itemId', (req, res) => {
     Grocery_Item.destroy({
