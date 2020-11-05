@@ -5,55 +5,40 @@ const User = require('../models').User;
 const Grocery_Item = require('../models').Grocery_Item;
 const Store_Section = require('../models').Store_Section;
 
-router.get('/signup', (req, res) => {
-    res.render('users/signup.ejs');
-});
+// router.get('/signup', (req, res) => {
+//     res.render('users/signup.ejs');
+// });
 
-router.get('/login', (req, res) => {
-    res.render('users/login.ejs', {
-        addAttempt: false,
-    });
-});
+// router.get('/login', (req, res) => {
+//     res.render('users/login.ejs', {
+//         addAttempt: false,
+//     });
+// });
 
-router.get('/login/addAttempt', (req, res) => {
-    res.render('users/login.ejs', {
-        addAttempt: true,
-    });
-});
+// router.get('/login/addAttempt', (req, res) => {
+//     res.render('users/login.ejs', {
+//         addAttempt: true,
+//     });
+// });
 
-router.post('/signup', (req, res) => {
-    User.create(req.body).then((newUser) => {
-        res.redirect(`/users/profile/${newUser.id}`);
-    });
-});
+// router.post('/signup', (req, res) => {
+//     User.create(req.body).then((newUser) => {
+//         res.redirect(`/users/profile/${newUser.id}`);
+//     });
+// });
 
-router.post('/login', (req, res) => {
-    User.findOne({
-        where: {
-            username: req.body.username,
-            password: req.body.password
-        },
-    }).then((user) => {
-        if(user == null) {
-            res.redirect('/users/login/addAttempt');
-        } else {
-            res.redirect(`/users/profile/${user.id}`);
-        }
-    });
-});
-
-
-// router.get('/profile/:id', (req, res) => {
-//     User.findByPk(req.params.id).then((user) => {
-//         Grocery_Item.findAll().then((grocery_item) => {
-//             Store_Section.findAll().then((store_section) => {
-//                 res.render('users/profile.ejs', {
-//                     user: user,
-//                     grocery_item: grocery_item,
-//                     store_section: store_section,
-//                 });
-//             });
-//         });
+// router.post('/login', (req, res) => {
+//     User.findOne({
+//         where: {
+//             username: req.body.username,
+//             password: req.body.password
+//         },
+//     }).then((user) => {
+//         if(user == null) {
+//             res.redirect('/users/login/addAttempt');
+//         } else {
+//             res.redirect(`/users/profile/${user.id}`);
+//         }
 //     });
 // });
 
