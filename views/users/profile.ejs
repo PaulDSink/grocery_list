@@ -17,10 +17,12 @@
     </nav>
     </div>
     <div class="content">
+        <div  class="contentheader">
         <h3>Grocery List:</h3>
-        <ul>
+        </div>
+        <ul id="grocerylist">
             <%for(let i = 0; i < user.Grocery_Items.length; i++) {%>
-            <li>
+            <li class="listitem">
                 <input type="checkbox" name="checkbox">
                 <p><%=user.Grocery_Items[i].name%></p>
                 <p><%=user.Grocery_Items[i].Store_Section.name%></p>
@@ -30,7 +32,9 @@
             </li>
             <%}%>
         </ul>
+        <div class="contentheader">
         <h3>Add Grocery Item:</h3>
+        </div>
         <form action="/users/items/<%=user.id%>" method="POST">
             <input type="text" name="name">
             <select name="sectionId">

@@ -17,7 +17,7 @@
     </div>
     <div class="content">
         <%if(addAttempt) {%>
-            <p>Incorrect username or password. Try again.</p>
+            <p id="failedlogin">Incorrect username or password.</p>
         <%}%>
         <form action="/auth/login" method="POST">
         Username: <input type="text" name="username">
