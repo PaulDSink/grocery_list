@@ -5,6 +5,7 @@ module.exports = {
     await queryInterface.addColumn('Grocery_Items', 
     'sectionId', 
     { 
+      allowNull: false,
       type: Sequelize.INTEGER 
     });
   },

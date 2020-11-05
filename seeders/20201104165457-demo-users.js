@@ -8,14 +8,14 @@ module.exports = {
         {
           name: 'Paul Sink',
           username: 'psink',
-          password: '123',
+          password: '$2a$10$9rLKwJ39Y//vVmPLidytFeiTlIbbsThvSSwCZqOVI8QuALebEzd9e',
           createdAt: new Date(),
           updatedAt: new Date(),
       },
       {
           name: 'test',
           username: 'test',
-          password: 'test',
+          password: '$2a$10$9rLKwJ39Y//vVmPLidytFeiTlIbbsThvSSwCZqOVI8QuALebEzd9e',
           createdAt: new Date(),
           updatedAt: new Date(),
       }

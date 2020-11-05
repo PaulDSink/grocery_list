@@ -43,6 +43,7 @@ const Store_Section = require('../models').Store_Section;
 // });
 
 router.get('/profile/:id', (req, res) => {
+    if(req.user.id == req.params.id) {
     User.findByPk(req.params.id, {
         include: [
             {
@@ -64,6 +65,9 @@ router.get('/profile/:id', (req, res) => {
             });
         });
     });
+    } else {
+        res.redirect('/');
+    }
 });
 
 
