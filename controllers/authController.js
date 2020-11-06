@@ -22,12 +22,6 @@ router.get('/login/addAttempt', (req, res) => {
     });
 });
 
-// router.post('/signup', (req, res) => {
-//     User.create(req.body).then((newUser) => {
-//         res.redirect(`/users/profile/${newUser.id}`);
-//     });
-// });
-
 router.post("/signup", (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
       if (err) return res.status(500).json(err);
@@ -58,39 +52,6 @@ router.post("/signup", (req, res) => {
       });
     });
   });
-
-// router.post('/login', (req, res) => {
-//     User.findOne({
-//         where: {
-//             username: req.body.username,
-//             password: req.body.password
-//         },
-//     }).then((user) => {
-//         if(user == null) {
-//             res.redirect('/auth/login/addAttempt');
-//         } else {
-//             res.redirect(`/users/profile/${user.id}`);
-//         }
-//     });
-// });
-
-// router.post("/login", (req, res) => {
-//     User.findOne({
-//       where: {
-//         username: req.body.username,
-//       },
-//     }).then((foundUser) => {
-//       if (foundUser) {
-//         bcrypt.compare(req.body.password, foundUser.password, (err, match) => {
-//           if (match) {
-//             res.redirect(`/users/profile/${foundUser.id}`);
-//           } else {
-//             res.redirect('/auth/login/addAttempt');
-//           }
-//         });
-//       }
-//     });
-//   });
 
 router.post('/login', (req, res) => {
     User.findOne({
