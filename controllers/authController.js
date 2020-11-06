@@ -118,6 +118,8 @@ router.post('/login', (req, res) => {
             res.redirect('/auth/login/addAttempt');
           }
         });
+      } else {
+        res.redirect('/auth/login/addAttempt');
       }
     });
   });

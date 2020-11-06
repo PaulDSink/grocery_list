@@ -4,6 +4,7 @@
 
 html, body {
     margin: 0;
+    font-family: 'Kalam', cursive;
 }
 
 body {
@@ -49,7 +50,7 @@ a {
 .content {
     /* align-self: stretch; */
     color: #254965;
-    margin-top: 35px;
+    margin-top: 15px;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -66,24 +67,44 @@ footer {
     background-color: #5284ac;
     border: 2px solid #254965;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
 }
 
+footer > h3 {
+    margin-right: 25px;
+}
+
 #failedlogin {
+    width: 100%;
     color: #fa0000;
+    text-align: center;
 }
 
 .container {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 #add {
-    height: 200px;
+    height: 150px;
+    background-color: #5284ac;
+    border: 2px solid #254965;
+}
+
+#add > .contentheader {
+    color: #ffffff;
+}
+
+#addcontent {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #list {
@@ -93,7 +114,7 @@ footer {
 .contentheader {
     color: #254965;
     width: 75%;
-    height: 45px;
+    height: 54px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -110,15 +131,48 @@ footer {
 }
 
 .listitem {
+    margin-bottom: 5px;
     color: #ffffff;
     background-color: #5284ac;
     border: 2px solid #254965;
+    border-radius: 15px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.listitem > input,p,form {
-    width: 25%;
+.listitem > input {
+    width: 10%;
+}
+
+.listitem > p {
+    width: 35%;
+}
+
+.listitem > form {
+    width: 20%;
+}
+
+p, form {
+    text-align: center;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputpage {
+    width: 50%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.input > p {
+    width: auto;
 }

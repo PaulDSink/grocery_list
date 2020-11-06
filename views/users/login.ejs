@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
     <title>Login Page</title>
 </head>
@@ -16,21 +17,26 @@
     </nav>
     </div>
     <div class="content">
-        <%if(addAttempt) {%>
-            <p id="failedlogin">Incorrect username or password.</p>
-        <%}%>
-        <form action="/auth/login" method="POST">
-        Username: <input type="text" name="username">
-        <br/>
-        <br/>
-        Password: <input type="text" name="password">
-        <br/>
-        <br/>
-        <input type="submit" name="Login User">
-        </form>
+        <div class="inputpage">
+            <%if(addAttempt) {%>
+                <p id="failedlogin">Incorrect username or password.</p>
+            <%}%>
+            <form action="/auth/login" method="POST">
+                <div>
+                    <div class="input">
+                        <p>Username: </p><input type="text" name="username">
+                    </div>
+                    <div class="input">
+                        <p>Password: </p><input type="text" name="password">
+                    </div>
+                    <br/>
+                    <input type="submit" name="Login User">
+                </div>
+            </form>
+        </div>
     </div>
     <footer>
-
+        <h3>Made with &hearts; by Paul</h3>
     </footer>
 </body>
 </html>
