@@ -176,3 +176,20 @@ p, form {
 .input > p {
     width: auto;
 }
+
+.indexcontent {
+    width: 50%;
+    margin: 0 25px;
+}
+
+.indexcontent > h3, p {
+    width: 100%;
+}
+
+#index {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}

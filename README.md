@@ -2,21 +2,35 @@
 
 ## Description  
 
+This application allows users to create and save a grocery list online. Each user can add a new item including what section of the grocery store they can find it in.
 
+
+## Project Links
+
+* [Github Repo](https://sink-project2-grocerylist-app.herokuapp.com/)
+* [Deployment](https://github.com/PaulDSink/grocery_list)
 
 ## Approach  
 
+My approach for this project was to meet my minimum viable product(MVP) that included full CRUD functionality allowing a user to sign in and view, add and delete items from their grocery list.
   
 
-### Bronze  
+### MVP  
+
+#### 7 Restful Roots
+| **URL** | **HTTP Verb** |  **Action**|
+|------------|-------------|------------|
+| /        | GET       | index  
+| /auth/signup         | GET       | new   
+| /auth/signup          | POST      | create   
+| /users/profile/:id      | GET       | show       
+| /users/profile/:id/edit | GET       | edit       
+| /users/profile/:id/edit      | PATCH/PUT | update    
+| /users/profile/:id/edit     | DELETE    | destroy 
 
 
 
-### Silver  
-
-
-
-### Gold  
+### Post MVP  
 
  
 
@@ -31,10 +45,10 @@ Above is my entity relationship diagram (ERD) of my grocery list app. It shows t
 
 ### Wireframe  
 
-![Homepage](images/Wireframe_Home.png)  
+![Homepage](images/WireFrame_Home.png)  
 The above picture is the initial wireframe for the home page of my application.
 
-![List Page](images/Wireframe_List.png)
+![List Page](images/WireFrame_List.png)
 The above picture is the initial wireframe for the list view of my application.
 
 ## Example  
@@ -51,13 +65,19 @@ The above picture is the initial wireframe for the list view of my application.
 
 I used the following technologies on this project:
 
+* HTML5
+* CSS3
+* JavaScript
+* Node.js
+* Express Framework
+* PostgreSQL
 * 
 
 ## Installation  
 
-
+This application has been deployed and can be accessed to play by visiting https://sink-project2-grocerylist-app.herokuapp.com/ with any web browser.  
 
 ## Contribution  
 
-Source code: [click here](url)  
-Issue reporting: [click here](url)
+Source code: [click here](https://github.com/PaulDSink/grocery_list)  
+Issue reporting: [click here](https://github.com/PaulDSink/grocery_list/issues)
